@@ -15,7 +15,7 @@ const app = createExpressServer({
     defaultErrorHandler: true
 });
 
-app.listen(80, () => {
+app.listen(10230, () => {
     console.log('env ' + process.env.NODE_ENV);
-    console.log('User service listening on port ' + 80);
+    console.log('User service listening on port ' + 10230);
 });
