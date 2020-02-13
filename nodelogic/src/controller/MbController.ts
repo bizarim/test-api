@@ -13,7 +13,7 @@ export class MbController {
     }
 
     @Post('/verify')
-    public async verify(@Body() dto: VerifyDto): Promise<string> {
+    public async verify(@Body() dto: any): Promise<string> {
         console.log('verify:' + JSON.stringify(dto));
         await this.mbService.verify(dto);
         return '<script>window.close();</script>';
