@@ -1,4 +1,4 @@
-import { Post, Controller, Body, Get, QueryParam, QueryParams, Req, Res } from 'routing-controllers';
+import { Post, JsonController as Controller, Body, Get, QueryParam, QueryParams } from 'routing-controllers';
 import { MbService } from '../service/MbService';
 import { VerifyDto } from '../dto/VerifyDto';
 
@@ -12,19 +12,13 @@ export class MbController {
         return 'test';
     }
 
-    @Get('/users')
-    public async getAll(@Req() request: any, @Res() response: any) {
-
-    }
 
     @Post('/verify')
-    public async verify(@Req() request: any, @Res() response: any, @Body() body: any, @QueryParams() query: any): Promise<string> {
-
-        console.log('verify:' + JSON.stringify(request.body));
-        console.log(JSON.stringify(body));
-        console.log(JSON.stringify(query));
-        // await this.mbService.verify(dto);
-        return response.send('<script>window.close();</script>');
+    public async verify(@Body() dto: any, @QueryParams() query: any): Promise<string> {
+        console.log('verify:' + JSON.stringify(dto));
+        console.log(query);
+        await this.mbService.verify(dto);
+        return '<script>window.close();</script>';
     }
 
 
