@@ -9,7 +9,7 @@ services:
         expose:
             - 80
         ports:
-            - 10230:80
+            - 80:80
         environment:
             - NODE_ENV=dev
         networks:
