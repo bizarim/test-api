@@ -13,9 +13,9 @@ export class MbController {
     }
 
     @Post('/verify')
-    public async verify(): Promise<string> {
+    public async verify(@Body({ validate: true }) dto: VerifyDto): Promise<string> {
         console.log('verify');
-        await this.mbService.verify({name: 'a', no: 'a', mstr: ''});
+        await this.mbService.verify(dto);
         return 'test';
     }
 }
