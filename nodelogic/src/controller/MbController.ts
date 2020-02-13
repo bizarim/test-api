@@ -18,10 +18,11 @@ export class MbController {
     }
 
     @Post('/verify')
-    public async verify(@Req() request: any, @Res() response: any): Promise<string> {
+    public async verify(@Req() request: any, @Res() response: any, @Body() body: any, @QueryParams() query: any): Promise<string> {
 
         console.log('verify:' + JSON.stringify(request.body));
-        // console.log(query);
+        console.log(JSON.stringify(body));
+        console.log(JSON.stringify(query));
         // await this.mbService.verify(dto);
         return response.send('<script>window.close();</script>');
     }
