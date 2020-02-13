@@ -1,11 +1,21 @@
 import 'reflect-metadata';
 import { Container } from 'typedi';
-import { createExpressServer, useContainer as routingUseContainer } from 'routing-controllers';
+import {
+    useExpressServer,
+    createExpressServer,
+    useContainer as routingUseContainer
+} from 'routing-controllers';
 import { MbController } from './controller/MbController';
+import * as express from 'express';
+
+const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 routingUseContainer(Container);
 
-const app = createExpressServer({
+
+useExpressServer(app, {
     cors: true,
     controllers: [MbController],
     middlewares: [],
@@ -14,6 +24,7 @@ const app = createExpressServer({
     development: true,
     defaultErrorHandler: true
 });
+
 
 app.listen(10230, () => {
     console.log('env ' + process.env.NODE_ENV);
