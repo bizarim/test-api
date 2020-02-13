@@ -1,4 +1,4 @@
-import { Controller, Post, Get, Body } from 'routing-controllers';
+import { JsonController as Controller, Post, Get, Body } from 'routing-controllers';
 import { MbService } from '../service/MbService';
 import { VerifyDto } from '../dto/VerifyDto';
 

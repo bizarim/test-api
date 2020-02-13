@@ -11,20 +11,20 @@ export class MbService {
 
     public async verify(dto: VerifyDto): Promise<void> {
         try {
-            const { Name, No, MSTR } = dto;
-            console.log('dto Name: ' + Name);
-            console.log('dto No: ' + dto);
-            console.log('dto MSTR: ' + MSTR);
-            const axiosRes = await axios.post<KGResponse>(`http://web/okurl.php?Name=${Name}&No=${No}`);
+            const { name, no, mstr } = dto;
+            console.log('dto Name: ' + name);
+            console.log('dto No: ' + no);
+            console.log('dto MSTR: ' + mstr);
+            const axiosRes = await axios.post<KGResponse>(`http://web/okurl.php?Name=${name}&No=${no}`);
             console.log(axiosRes.status);
             console.log(axiosRes.statusText);
             const rt = axiosRes.data.Resultcd;
             console.log(rt);
             const a = axiosRes.data.Resultmsg;
             console.log(a);
-            const name = axiosRes.data.Name;
+            const ee = axiosRes.data.Name;
             const phoneHexa = axiosRes.data.No;
-            console.log('name: ' + name);
+            console.log('name: ' + ee);
             console.log('phoneHexa: ' + phoneHexa);
         } catch (e) {
             console.log(JSON.stringify(e.message));
