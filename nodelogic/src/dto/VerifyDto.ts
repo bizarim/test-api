@@ -1,5 +1,5 @@
 export class VerifyDto {
-    name: string;
-    no: string;
-    mstr: string;
+    Name: string;
+    No: string;
+    MSTR: string;
 }
