@@ -15,7 +15,7 @@ export class MbService {
             console.log('dto Name: ' + name);
             console.log('dto No: ' + no);
             console.log('dto MSTR: ' + mstr);
-            const axiosRes = await axios.post<KGResponse>(`http://web:8080/okurl.php?Name=${name}&No=${no}`);
+            const axiosRes = await axios.post<KGResponse>(`http://web/okurl.php?Name=${name}&No=${no}`);
             console.log(axiosRes.status);
             console.log(axiosRes.statusText);
             const rt = axiosRes.data.Resultcd;

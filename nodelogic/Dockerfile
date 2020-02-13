@@ -20,7 +20,7 @@ COPY ./ ./
 RUN yarn install
 
 # 포트 열어주고
-EXPOSE 80
+EXPOSE 10230
 
 # 실행
 CMD ["yarn", "start"]

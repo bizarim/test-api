@@ -7,7 +7,7 @@ services:
             context: ./nodelogic
             dockerfile: Dockerfile
         ports:
-            - 80:80
+            - 10230:10230
         environment:
             - NODE_ENV=dev
         networks:
