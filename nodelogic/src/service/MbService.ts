@@ -5,9 +5,17 @@ import axios from 'axios';
 @Service()
 export class MbService {
 
-    public async verify(): Promise<void> {
+    public async test(): Promise<void> {
+        console.log('test');
+    }
+
+    public async verify(dto: VerifyDto): Promise<void> {
         try {
-            const axiosRes = await axios.post<KGResponse>(`http://web/okurl.php?Name=${'test'}&No=${'test'}`);
+            const { Name, No, MSTR } = dto;
+            console.log('dto Name: ' + Name);
+            console.log('dto No: ' + dto);
+            console.log('dto MSTR: ' + MSTR);
+            const axiosRes = await axios.post<KGResponse>(`http://web/okurl.php?Name=${Name}&No=${No}`);
             console.log(axiosRes.status);
             console.log(axiosRes.statusText);
             const rt = axiosRes.data.Resultcd;

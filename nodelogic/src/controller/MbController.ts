@@ -1,4 +1,4 @@
-import { Controller, Post, Get } from 'routing-controllers';
+import { Controller, Post, Get, Body } from 'routing-controllers';
 import { MbService } from '../service/MbService';
 import { VerifyDto } from '../dto/VerifyDto';
 
@@ -6,9 +6,15 @@ import { VerifyDto } from '../dto/VerifyDto';
 export class MbController {
     constructor(private readonly mbService: MbService) { }
 
-    @Get('/verify')
-    public async verify(): Promise<string> {
-        await this.mbService.verify();
+    @Get('/test')
+    public async test(): Promise<string> {
+        await this.mbService.test();
+        return 'test';
+    }
+
+    @Post('/verify')
+    public async verify(@Body() dto: VerifyDto): Promise<string> {
+        await this.mbService.verify(dto);
         return 'test';
     }
 }
