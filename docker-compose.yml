@@ -6,6 +6,8 @@ services:
         build:
             context: ./nodelogic
             dockerfile: Dockerfile
+        expose:
+            - 80
         ports:
             - 10230:80
         environment:
