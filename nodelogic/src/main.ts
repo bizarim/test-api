@@ -14,7 +14,6 @@ app.use(express.urlencoded({ extended: false }));
 
 routingUseContainer(Container);
 
-
 useExpressServer(app, {
     cors: true,
     controllers: [MbController],
