@@ -6,10 +6,8 @@ services:
         build:
             context: ./nodelogic
             dockerfile: Dockerfile
-        expose:
-            - 80
         ports:
-            - 80:80
+            - 10230:10230
         environment:
             - NODE_ENV=dev
         networks:
@@ -18,7 +16,7 @@ services:
     web:
         image: nginx:latest
         ports:
-            - 8080:8080
+            - 8080:80
         volumes:
             - ./code:/code
             - ./site.conf:/etc/nginx/conf.d/default.conf
