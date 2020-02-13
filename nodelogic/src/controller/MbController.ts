@@ -16,6 +16,6 @@ export class MbController {
     public async verify(@Body({ validate: true }) dto: VerifyDto): Promise<string> {
         console.log('verify');
         await this.mbService.verify(dto);
-        return 'test';
+        return '<script>window.close();</script>';
     }
 }
