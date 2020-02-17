@@ -33,7 +33,9 @@ export class MbController {
 
     @Get('/close')
     public async close(@Req() request: any, @Res() response: any) {
-        return response.send('<script>this.callback()</script>');
+        return response.send(`<script>var frame = document.getElementById("my-iframe"),
+        frameDoc = frame.contentDocument || frame.contentWindow.document;
+        frameDoc.removeChild(frameDoc.documentElement);</script>`);
     }
 
 }
