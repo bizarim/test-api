@@ -33,7 +33,7 @@ export class MbController {
 
     @Get('/close')
     public async close(@Req() request: any, @Res() response: any) {
-        return response.send('<script>callback()</script>');
+        return response.send('<script>this.callback()</script>');
     }
 
 }
