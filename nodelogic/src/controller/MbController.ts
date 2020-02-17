@@ -28,7 +28,7 @@ export class MbController {
 
         await this.mbService.verify(dto);
 
-        return response.send('<script>window.close();</script>');
+        return response.send(`<script>window.parent.postMessage({ verify: true }, '*');</script>`);
     }
 
     @Get('/close')
